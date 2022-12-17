@@ -1,0 +1,27 @@
+{
+  "name": "shitify",
+  "version": "1.0.0",
+  "description": "Shitify.js is a new tool that’s shaking up the world of software development. It’s a reverse linter, which means it adds errors to your code.",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "bin": {
+    "shitify": "node src/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thunder-red-star/shitify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thunder-red-star/shitify/issues"
+  },
+  "homepage": "https://github.com/thunder-red-star/shitify#readme"
+}
