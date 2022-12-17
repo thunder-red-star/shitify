@@ -1,5 +1,5 @@
-#! /usr/bin/env node
-// Create a command line interface for our script (only takes one argument: file name)
+#!/usr/bin/env node
+
 const shitify = require('./shitify');
 
 const args = process.argv.slice(2);
