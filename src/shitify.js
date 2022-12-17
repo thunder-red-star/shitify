@@ -67,34 +67,40 @@ function createRandomFunction (str) {
 }
 
 function randomCommentSnippet (str) {
-	// Return a random comment (or a few)
-	const numberOfComments = Math.floor(Math.random() * 4) + 2;
-	const comments = [];
-	for (let i = 0; i < numberOfComments; i++) {
-		// Choose comments without repetition
-		let comment;
-		do {
-			comment = randomComments[Math.floor(Math.random() * randomComments.length)];
-		} while (comments.includes(comment));
-		comments.push(comment);
-	}
-	// Return comments
-	let result = comments.join('\n');
-	return result;
+	// Return a random comment
+	const comment = randomComments[Math.floor(Math.random() * randomComments.length)];
+	return comment;
 }
 
 // Combine it all into one shitify function
 function shitifyString (str) {
+	let temp = str;
 	// Add random import statements
 	str = addRandomImportStatements(str);
 	// Add random variable declarations
 	str = randomVariableDeclaration(str);
 	// Add random code snippets
+	str += temp;
 	str = randomCodeSnippet(str);
-	// Add random comments
-	str = randomCommentSnippet(str);
 	// Add random functions
 	str = createRandomFunction(str);
+	// Choose places to add random comments
+	const numberOfComments = Math.floor(Math.random() * 4) + 2;
+	const commentIndices = [];
+	for (let i = 0; i < numberOfComments; i++) {
+		// Choose a place in str to add a comment
+		let index;
+		do {
+			index = Math.floor(Math.random() * str.split('\n').length);
+		} while (commentIndices.includes(index));
+		commentIndices.push(index);
+	}
+	// Add random comments
+	commentIndices.forEach(index => {
+		str = str.split('\n');
+		str.splice(index, 0, randomCommentSnippet());
+		str = str.join('\n');
+	});
 	return str;
 }
 
