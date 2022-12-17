@@ -8,7 +8,7 @@
     "test": "test"
   },
   "bin": {
-    "shitify": "node src/index.js"
+    "shitify": "./src/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
